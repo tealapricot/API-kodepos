@@ -1,0 +1,29 @@
+version: "4.2"
+services:
+  nginx:
+    build: ./nginx/
+    image: nginx:latest
+    container_name: nginx-container
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./basecode/var/www/:/var/www/html/
+
+  php:
+    build: ./basecode/
+    volumes:
+      - ./basecode/var/www/:/var/www/html/
+    expose:
+      - 9000
+
+  db:
+    image: mariadb:latest
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: restapi
+    expose:
+      - 3306
+      - 33060
