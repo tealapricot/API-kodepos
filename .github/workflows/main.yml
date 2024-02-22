@@ -16,3 +16,11 @@ jobs:
         with:
           php-version: "8.3"
           coverage: xdebug
+      - uses: mr-smithers-excellent/docker-build-push@v6
+        name: Build & push Docker image
+        with:
+          image: repo/image
+          tags: v1, latest
+          registry: renren4869/kodeposapi
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
