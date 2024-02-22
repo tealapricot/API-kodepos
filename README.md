@@ -31,3 +31,10 @@ mencari daftar kode pos dari desa
 ### PIPELINE CI/CD
 
 menggunakan Github Action yang sudah ada di .github/workflow, yang akan otomatis menjalankan testing xdebug di kode php
+
+cara running
+re-commit di main atau buat branch baru file main.yml di .github/workflows/main.yml
+
+hasil build
+![alt text](readme/1.JPG)
+![alt text](readme/2.JPG)
